@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Poiret+One");
+.tweet {
+  width: 500px;
+  margin: 20px auto;
+  background-color: darkblue;
+  color: black;
+  padding: 5pt;
+  font-family: "Poiret One";
+}
+
+.tweet-author {
+  font: poiret;
+  color: white;
+}
+
+.tweet-text {
+  background: white;
+  padding: 5pt;
+}
+
+.author {
+  color: white;
+  text-decoration: none;
+}

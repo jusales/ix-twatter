@@ -8,6 +8,7 @@
     "build": "rimraf dist && tsc"
   },
   "dependencies": {
+    "apollo-link-context": "^1.0.8",
     "bcryptjs": "2.4.3",
     "graphql-yoga": "1.14.12",
     "jsonwebtoken": "8.3.0",

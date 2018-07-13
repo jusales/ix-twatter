@@ -1,0 +1,11 @@
+endpoint: https://eu1.prisma.sh/juliana-sales/twatter/dev
+
+datamodel: datamodel.graphql
+
+secret: ${env:PRISMA_SECRET}
+
+hooks:
+  post-deploy:
+    - graphql get-schema -p database
+    - graphql prepare
+    - graphql codegen

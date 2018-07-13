@@ -415,6 +415,7 @@ type User implements Node {
   email: String!
   password: String!
   name: String!
+  username: String!
   picture: String
   tweets(where: TweetWhereInput, orderBy: TweetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tweet!]
 }
@@ -433,6 +434,7 @@ input UserCreateInput {
   email: String!
   password: String!
   name: String!
+  username: String!
   picture: String
   tweets: TweetCreateManyWithoutAuthorInput
 }
@@ -446,6 +448,7 @@ input UserCreateWithoutTweetsInput {
   email: String!
   password: String!
   name: String!
+  username: String!
   picture: String
 }
 
@@ -467,6 +470,8 @@ enum UserOrderByInput {
   password_DESC
   name_ASC
   name_DESC
+  username_ASC
+  username_DESC
   picture_ASC
   picture_DESC
   updatedAt_ASC
@@ -480,6 +485,7 @@ type UserPreviousValues {
   email: String!
   password: String!
   name: String!
+  username: String!
   picture: String
 }
 
@@ -526,6 +532,7 @@ input UserUpdateInput {
   email: String
   password: String
   name: String
+  username: String
   picture: String
   tweets: TweetUpdateManyWithoutAuthorInput
 }
@@ -542,6 +549,7 @@ input UserUpdateWithoutTweetsDataInput {
   email: String
   password: String
   name: String
+  username: String
   picture: String
 }
 
@@ -719,6 +727,46 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   name_not_ends_with: String
+  username: String
+
+  """All values that are not equal to given value."""
+  username_not: String
+
+  """All values that are contained in given list."""
+  username_in: [String!]
+
+  """All values that are not contained in given list."""
+  username_not_in: [String!]
+
+  """All values less than the given value."""
+  username_lt: String
+
+  """All values less than or equal the given value."""
+  username_lte: String
+
+  """All values greater than the given value."""
+  username_gt: String
+
+  """All values greater than or equal the given value."""
+  username_gte: String
+
+  """All values containing the given string."""
+  username_contains: String
+
+  """All values not containing the given string."""
+  username_not_contains: String
+
+  """All values starting with the given string."""
+  username_starts_with: String
+
+  """All values not starting with the given string."""
+  username_not_starts_with: String
+
+  """All values ending with the given string."""
+  username_ends_with: String
+
+  """All values not ending with the given string."""
+  username_not_ends_with: String
   picture: String
 
   """All values that are not equal to given value."""
@@ -767,6 +815,7 @@ input UserWhereInput {
 input UserWhereUniqueInput {
   id: ID
   email: String
+  username: String
 }
 `
 
@@ -793,6 +842,8 @@ export type UserOrderByInput =   'id_ASC' |
   'password_DESC' |
   'name_ASC' |
   'name_DESC' |
+  'username_ASC' |
+  'username_DESC' |
   'picture_ASC' |
   'picture_DESC' |
   'updatedAt_ASC' |
@@ -925,6 +976,20 @@ export interface UserWhereInput {
   name_not_starts_with?: String
   name_ends_with?: String
   name_not_ends_with?: String
+  username?: String
+  username_not?: String
+  username_in?: String[] | String
+  username_not_in?: String[] | String
+  username_lt?: String
+  username_lte?: String
+  username_gt?: String
+  username_gte?: String
+  username_contains?: String
+  username_not_contains?: String
+  username_starts_with?: String
+  username_not_starts_with?: String
+  username_ends_with?: String
+  username_not_ends_with?: String
   picture?: String
   picture_not?: String
   picture_in?: String[] | String
@@ -948,6 +1013,7 @@ export interface UserUpdateInput {
   email?: String
   password?: String
   name?: String
+  username?: String
   picture?: String
   tweets?: TweetUpdateManyWithoutAuthorInput
 }
@@ -976,12 +1042,14 @@ export interface UserUpdateWithoutTweetsDataInput {
   email?: String
   password?: String
   name?: String
+  username?: String
   picture?: String
 }
 
 export interface UserWhereUniqueInput {
   id?: ID_Input
   email?: String
+  username?: String
 }
 
 export interface UserUpdateOneWithoutTweetsInput {
@@ -1000,6 +1068,7 @@ export interface UserCreateInput {
   email: String
   password: String
   name: String
+  username: String
   picture?: String
   tweets?: TweetCreateManyWithoutAuthorInput
 }
@@ -1008,6 +1077,7 @@ export interface UserCreateWithoutTweetsInput {
   email: String
   password: String
   name: String
+  username: String
   picture?: String
 }
 
@@ -1069,6 +1139,7 @@ export interface UserPreviousValues {
   email: String
   password: String
   name: String
+  username: String
   picture?: String
 }
 
@@ -1130,6 +1201,7 @@ export interface User extends Node {
   email: String
   password: String
   name: String
+  username: String
   picture?: String
   tweets?: Tweet[]
 }

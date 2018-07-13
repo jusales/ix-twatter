@@ -31,4 +31,22 @@ export const auth = {
       user,
     }
   },
+
+  async createTweet(parent, args, ctx: Context, info) {
+    /*const user = await ctx.db.query.user({ where: args.email })
+    if (!user) {
+      throw new Error(`No such user found for email: ${args.email}`)
+    }*/
+
+    return await ctx.db.mutation.createTweet({
+      data: {
+        text: args.text,
+        author: {
+          connect: {
+            email: args.author
+          }
+        }
+      }
+    }, info);
+  },
 }
